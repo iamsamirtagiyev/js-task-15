@@ -7,6 +7,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    background: rgba(138, 144, 255, 0.9);
+}
+
 
 .container {
     max-width: 1200px;
@@ -216,7 +220,7 @@ nav {
     text-align: center;
 }
 
-.product .about button {
+.product .about .button {
     border: none;
     outline: none;
     font-size: 16px;
@@ -224,10 +228,12 @@ nav {
     cursor: pointer;
     background: #fff;
     transition: all .5s ease;
+    text-decoration: none;
+    color: #000;
 }
 
-.product .about button:hover,
-.product:hover .about button {
+.product .about .button:hover,
+.product:hover .about .button {
     background: linear-gradient(0deg, #828fff 0%, #d496ff 100%);
     color: #fff;
 }
@@ -272,6 +278,44 @@ nav {
     background: transparent;
     border: solid 2px #000000;
     color: #000;
+}
+
+.details-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.details-wrapper .left, 
+.details-wrapper .right{
+    width: 50%;
+}
+.details-wrapper .left img{
+    width: 30%;
+}
+
+.details-wrapper .right{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.details-wrapper h1{
+    color: #fff;
+    font-size: 50px;
+}
+.details-wrapper span{
+    color: rgb(255, 255, 255);
+}
+.details-wrapper .right button{
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    background: #fff;
+    color: #000000;
+    cursor: pointer;
 }
 
 

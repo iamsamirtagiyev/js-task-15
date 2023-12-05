@@ -1,0 +1,28 @@
+{
+    "robots": [
+        {
+            "id": 0,
+            "url": "./assets/p1.png.webp",
+            "name": "The Upper Eye",
+            "about": "Who are in extremely love with eco friendly system."
+        },
+        {
+            "id": 1,
+            "url": "./assets/p2.png.webp",
+            "name": "The Crab Wheel",
+            "about": "Who are in extremely love with eco friendly system."
+        },
+        {
+            "id": 2,
+            "url": "./assets/p3.png.webp",
+            "name": "The Plug Ninja",
+            "about": "Who are in extremely love with eco friendly system."
+        },
+        {
+            "id": 3,
+            "url": "./assets/p4.png.webp",
+            "name": "The Controller",
+            "about": "Who are in extremely love with eco friendly system."
+        }
+    ]
+}
