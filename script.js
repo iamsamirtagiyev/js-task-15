@@ -56,7 +56,13 @@ fetch('http://localhost:3000/robots')
                             <span>${item2.name}</span>
                             <p>${item2.about}</p>
                             <a href="details.html?id=${item2.id}" class="button">View Details</a>
+                            <button class="button" onclick="deleteProduct(${item2.id})">Delete</button>
                     </div>
                 </div>`
         })
     })
+
+    function deleteProduct(del){
+        axios.delete(`http://localhost:3000/robots/${del}`)
+        window.location.reload()
+    }
