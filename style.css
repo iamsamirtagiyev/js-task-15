@@ -192,17 +192,29 @@ nav {
 .product {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .product .image {
+    width: 100px;
+    height: 160px;
     background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
 }
+.product .image img{
+    width: 250px;
+    height: 160px;
+    object-fit: cover;
+}
 
 .product .about {
+    width: 100%;
     background: #e3e3e3;
     display: flex;
     align-items: center;
@@ -402,6 +414,12 @@ nav {
     outline: none;
     background: linear-gradient(0deg, #828fff 0%, #d496ff 100%);
     padding: 5px 10px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+.images button:hover{
+    background: #fff;
+    color: #000;
 }
 .images .img img{
     width: 100%;
@@ -460,6 +478,8 @@ footer{
     border-radius: 50px;
     background: linear-gradient(0deg, #828fff 0%, #d496ff 100%);
     margin-left: 20px;
+    color: #fff;
+    cursor: pointer;
 }
 .feed{
     display: grid;
@@ -479,6 +499,7 @@ footer{
     background: #252525;
     padding: 10px;
     margin: 10px;
+    cursor: pointer;
 }
 
 .add-product{
