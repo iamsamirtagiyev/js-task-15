@@ -15,6 +15,8 @@ const modalForm = document.querySelector('.update')
 const updateName = document.querySelector('#name')
 const updateImg = document.querySelector('#image')
 const updateDescription = document.querySelector('#description')
+const addImg = document.querySelector('.add-image img')
+const addfile = document.querySelector('#add-image')
 let page = 3
 
 // ------------------> Nav Start <------------------
@@ -107,22 +109,32 @@ up.onclick = () => {
     });
 }
 
-
-closeModal.onclick = () => {
-    updateModal.classList.remove('active')
+updateModal.onclick = (e)=>{
+    if(e.target.classList.contains('update-modal')){
+        updateModal.classList.remove('active')
+    }
 }
 
-function updateData(id) {
+addfile.onchange = ()=>{
+    if(addfile.files[0].type == 'image/jpg' || addfile.files[0].type == 'image/jpeg' || addfile.files[0].type == 'image/png' || addfile.files[0].type == 'image/jwebp'){
+        addImg.src = URL.createObjectURL(addfile.files[0])
+    }
+    else{
+        alert("Please choose a photo in JPEG, JPG, PNG, WEBP format")
+    }
+}
+
+function updateData(id){
     updateModal.classList.add('active')
-    modalForm.onsubmit = (e) => {
+    modalForm.onsubmit = (e)=>{
         e.preventDefault()
-        const reader = new FileReader()
-        reader.readAsDataURL(updateImg.files[0])
-        reader.onload = (e) => {
-            axios.put(`http://localhost:3000/robots/${id}`, {
-                url: e.target.result,
+        let reader = new FileReader()
+        reader.readAsDataURL(addfile.files[0])
+        reader.onload = (e)=>{
+            axios.patch(`http://localhost:3000/robots/${id}`, {
                 name: updateName.value,
-                about: updateDescription.value
+                about: updateDescription.value,
+                url: e.target.result
             })
         }
     }

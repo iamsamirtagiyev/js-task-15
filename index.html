@@ -120,21 +120,20 @@
         </div>
         <div class="update-modal">
             <form class="update">
-                <i class="bx bx-x close-modal"></i>
-                <img src="./assets/p1.png.webp" alt="">
-                <div class="inputs">
-                    <label for="name">Image</label>
-                    <input type="file"id="image">
-                </div>
+                <input type="file" id="add-image">
+                <label class="add-image" for="add-image">
+                    <img src="./assets/user.webp" alt="">
+                    <i class='bx bx-camera'></i>
+                </label>
                 <div class="inputs">
                     <label for="name">Name</label>
-                    <input type="text" placeholder="Name" id="name">
+                    <input type="text" class="update-name" id="name" placeholder="Name">
                 </div>
                 <div class="inputs">
                     <label for="description">Description</label>
-                    <input type="text" placeholder="Description" id="description">
+                    <input type="text" class="update-description" id="description" placeholder="Description">
                 </div>
-                <button class="submit">Submit</button>
+                <button type="submit" class="submit">Submit</button>
             </form>
         </div>
         <div class="info">

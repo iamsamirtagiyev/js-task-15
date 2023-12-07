@@ -613,8 +613,8 @@ footer{
 
 .update-modal{
     position: fixed;
-    top: 0;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, .1);
@@ -622,61 +622,94 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+    padding: 20px;
     transition: all .5s ease;
     opacity: 0;
     pointer-events: none;
-}
-.update{
-    position: relative;
-    background: rgba(255, 255, 255, .8);
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 400px;
-    width: 100%;
-    transition: all .5s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
 }
 .update-modal.active{
     opacity: 1;
     pointer-events: all;
 }
-.update img{
-    border-radius: 999px;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
+.update{
+    width: 100%;
+    max-width: 400px;
+    background: #e3e3e3;
+    padding: 20px;
+    border-radius: 10px;
 }
-.update .inputs{
+
+.add-image{
+    position: relative;
+    width: 150px;
+    height: 150px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    flex-direction: column;
+    margin: auto;
+}
+.add-image i{
+    background: rgba(0, 0, 0, .5);
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 999px;
+    text-align: center;
+    line-height: 150px;
+    font-size: 30px;
+    color: #fff;
+    opacity: 0;
+    transition: all .5s ease;
+}
+.add-image:hover i{
+    opacity: 1;
+}
+#add-image{
+    display: none;
+}
+.add-image img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 999px;
+}
+
+.inputs{
     width: 100%;
     margin-bottom: 20px;
 }
-.update .inputs input{
-    font-size: 18px;
-    border: solid 1px gray;
-    outline: none;
-    background: #e3e3e3;
-    padding: 10px 20px;
-    width: 100%;
+label{
+    font-weight: 500;
 }
-.update .close-modal{
-    font-size: 30px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
+.inputs input{
+    width: 100%;
+    font-size: 18px;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    transition: all .5s ease;
 }
 .submit{
-    font-size: 18px;
-    border: solid 1px gray;
-    outline: none;
-    background: #006eff;
-    padding: 10px 20px;
     width: 100%;
+    font-size: 18px;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    transition: all .5s ease;
+    background: #006eff;
     color: #fff;
+    cursor: pointer;
 }
-
+.submit:hover{
+    background: #0d5fca;
+}
+.inputs input:focus{
+    box-shadow: 0 0 10px rgba(22, 31, 206, .3);
+}
 @media(max-width: 991px) {
     .container {
         max-width: 700px;
