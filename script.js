@@ -6,6 +6,7 @@ const menu = document.querySelector('.menu')
 const dropdown = document.querySelectorAll('.dropdown')
 const dropdownList = document.querySelectorAll('.dropdown-list')
 const productList = document.querySelector('.product-list')
+const up = document.querySelector('.up')
 
 // ------------------> Nav Start <------------------
 
@@ -62,7 +63,25 @@ fetch('http://localhost:3000/robots')
         })
     })
 
-    function deleteProduct(del){
-        axios.delete(`http://localhost:3000/robots/${del}`)
-        window.location.reload()
+function deleteProduct(del) {
+    axios.delete(`http://localhost:3000/robots/${del}`)
+    window.location.reload()
+}
+
+
+document.onscroll = () => {
+    if (window.scrollY > 30) {
+        up.classList.add('active')
     }
+    else {
+        up.classList.remove('active')
+    }
+}
+
+
+up.onclick = () => {
+    window.scroll({
+        top: 0,
+        behavior: "smooth",
+    });
+}
