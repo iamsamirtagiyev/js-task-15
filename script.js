@@ -7,6 +7,15 @@ const dropdown = document.querySelectorAll('.dropdown')
 const dropdownList = document.querySelectorAll('.dropdown-list')
 const productList = document.querySelector('.product-list')
 const up = document.querySelector('.up')
+const updateBtn = document.querySelector('.update-btn')
+const updateModal = document.querySelector('.update-modal')
+const closeModal = document.querySelector('.close-modal')
+const moreBtn = document.querySelector('.more-btn')
+const modalForm = document.querySelector('.update')
+const updateName = document.querySelector('#name')
+const updateImg = document.querySelector('#image')
+const updateDescription = document.querySelector('#description')
+let page = 3
 
 // ------------------> Nav Start <------------------
 
@@ -44,11 +53,12 @@ dropdown.forEach((element, index) => {
 
 // ------------------> Nav End <------------------
 
-fetch('http://localhost:3000/robots')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(item2 => {
-            productList.innerHTML += `
+function show() {
+    fetch('http://localhost:3000/robots')
+        .then(response => response.json())
+        .then(data => {
+            data.slice(page - 3, page).forEach(item2 => {
+                productList.innerHTML += `
                 <div class="product">
                         <div class="image">
                             <img src="${item2.url}" alt="">
@@ -58,15 +68,26 @@ fetch('http://localhost:3000/robots')
                             <p>${item2.about}</p>
                             <a href="details.html?id=${item2.id}" class="button">View Details</a>
                             <button class="button" onclick="deleteProduct(${item2.id})">Delete</button>
+                            <button class="button" id="update-btn" onclick="updateData(${item2.id})">Update</button>
                     </div>
                 </div>`
+            })
         })
-    })
+}
+
+show()
+
+moreBtn.onclick = () => {
+    page += 4
+    show()
+}
+
 
 function deleteProduct(del) {
     axios.delete(`http://localhost:3000/robots/${del}`)
     window.location.reload()
 }
+
 
 
 document.onscroll = () => {
@@ -84,4 +105,25 @@ up.onclick = () => {
         top: 0,
         behavior: "smooth",
     });
+}
+
+
+closeModal.onclick = () => {
+    updateModal.classList.remove('active')
+}
+
+function updateData(id) {
+    updateModal.classList.add('active')
+    modalForm.onsubmit = (e) => {
+        e.preventDefault()
+        const reader = new FileReader()
+        reader.readAsDataURL(updateImg.files[0])
+        reader.onload = (e) => {
+            axios.put(`http://localhost:3000/robots/${id}`, {
+                url: e.target.result,
+                name: updateName.value,
+                about: updateDescription.value
+            })
+        }
+    }
 }

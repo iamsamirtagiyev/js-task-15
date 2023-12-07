@@ -3,8 +3,9 @@ const button = document.querySelector('button')
 const productImg = document.querySelector('#file')
 const productName = document.querySelector('#name')
 const productDescroption = document.querySelector('#description')
+const form = document.querySelector('form')
 
-button.onclick = (e)=>{
+form.onsubmit = (e)=>{
     e.preventDefault()
     if(productImg.value != '' && productDescroption.value != '' && productName.value != ''){
         let obj = {}
