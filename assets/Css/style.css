@@ -14,6 +14,8 @@
     padding: 0 30px;
 }
 
+/* Nav Start */
+
 nav {
     background: rgba(138, 144, 255, 0.9);
     position: fixed;
@@ -110,6 +112,8 @@ nav {
     color: rgba(138, 144, 255, 0.9);
 }
 
+/* Nav End */
+
 .up{
     overflow: hidden;
     background: #828fff;
@@ -158,7 +162,7 @@ nav {
 .banner {
     width: 100%;
     min-height: 100vh;
-    background: url(./assets/banner-bg.jpg.webp);
+    background: url(../Image/banner-bg.jpg.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -489,7 +493,7 @@ nav {
 
 footer{
     margin-top: 20px;
-    background: url(./assets/footer-bg.jpg.webp);
+    background: url(../Image/footer-bg.jpg.webp);
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
